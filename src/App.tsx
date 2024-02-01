@@ -1,17 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Products, { products } from './products/Products';
-// import { IProduct } from './interfaces/IProduct';
+import "./App.css";
+import Products, { products } from "./products/Products";
 
-const App = () =>
-{
+const App = () => {
   return (
     <>
-    <div> <h3>Happy Shopping!</h3></div>
-    <Products products={products} />
+      <div>
+        <h3>Happy Shopping!</h3>
+      </div>
+      <Products products={products} />
     </>
-  )
-}
+  );
+};
 
 export default App;
