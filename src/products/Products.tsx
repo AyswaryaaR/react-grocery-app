@@ -1,13 +1,6 @@
-import { IProduct } from "../interfaces/IProduct";
-export const products: IProduct[] = [
-  { Name: "Meal maker", Quantity: 500, Cost: 1.4, ShopName: "Darshan nepal" },
-  { Name: "Jaggery", Quantity: 200, Cost: 2.5, ShopName: "Desi food store" },
-  { Name: "Milk", Quantity: 1, Cost: 0.99, ShopName: "Sher e punjab" },
-  { Name: "Bread", Quantity: 750, Cost: 1.5, ShopName: "Darshan nepal" },
-  { Name: "Cheese", Quantity: 500, Cost: 3.2, ShopName: "Popat store" },
-];
+import { IIdentifierProduct } from "../interfaces/IProduct";
 export interface IProductProps {
-  products: IProduct[];
+  products: IIdentifierProduct[];
 }
 const Products = (props: IProductProps) => {
   return (
@@ -19,7 +12,7 @@ const Products = (props: IProductProps) => {
               <strong>S.NO</strong>
             </td>
             <td>
-              <strong>Product</strong>
+              <strong>Product</strong>{" "}
             </td>
             <td>
               <strong>Quantity</strong>
@@ -32,11 +25,11 @@ const Products = (props: IProductProps) => {
             </td>
           </tr>
         </thead>
-        {props.products.map((product: IProduct, i: number) => (
+        {props.products.map((product: IIdentifierProduct) => (
           <>
-            <tr key={i}>
-              <td>{i + 1}</td>
-              <td>{product.Name}</td>
+            <tr key={product.id}>
+              <td>{product.id}</td>
+              <td>{product.Name} </td>
               <td>{product.Quantity}</td>
               <td>{product.Cost}</td>
               <td>{product.ShopName}</td>
