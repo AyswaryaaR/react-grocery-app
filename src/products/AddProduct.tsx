@@ -1,7 +1,13 @@
-const AddProduct = (props: any) => {
+import { IProduct } from "../interfaces/IProduct";
+
+interface IAddProductProps {
+  addProduct: (product: IProduct) => void;
+}
+
+const AddProduct = (props: IAddProductProps) => {
   return (
     <>
-      <button onClick={props.onButtonClick}>Add Product</button>
+      <button onClick={() => props.addProduct}>Add Product</button>
     </>
   );
 };

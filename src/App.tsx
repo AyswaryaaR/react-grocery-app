@@ -25,7 +25,7 @@ const App = () => {
       <div>
         <h3>Happy Shopping!</h3>
       </div>
-      <AddProduct onButtonClick={() => setCanShowDialog(true)} />
+      <AddProduct addProduct={() => setCanShowDialog(true)} />
       {canShowDialog && <AddProductDialogBox onAddProduct={onAddProduct} />}
       <Products products={products} />
     </>

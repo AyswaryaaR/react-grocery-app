@@ -12,13 +12,13 @@ const Products = (props: IProductProps) => {
               <strong>S.NO</strong>
             </td>
             <td>
-              <strong>Product</strong>{" "}
+              <strong>Product</strong>
             </td>
             <td>
               <strong>Quantity</strong>
             </td>
             <td>
-              <strong>Cost</strong>
+              <strong>Cost in Euros</strong>
             </td>
             <td>
               <strong>Shop Name</strong>

@@ -17,9 +17,7 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
     <>
       <div>
         <input
-          onChange={(e) =>
-            setProduct({ ...product, Name: String(e.target.value) })
-          }
+          onChange={(e) => setProduct({ ...product, Name: e.target.value })}
           placeholder="Product name"
         />
       </div>
@@ -55,7 +53,7 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
           onChange={(event) =>
             setProduct({
               ...product,
-              ShopName: String(event.target.value),
+              ShopName: event.target.value,
             })
           }
           placeholder="Shop name"
