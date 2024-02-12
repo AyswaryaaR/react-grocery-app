@@ -1,8 +1,19 @@
 import { IIdentifierProduct } from "../interfaces/IProduct";
+import ProductNameSort from "./ProductNameSort";
+
 export interface IProductProps {
   products: IIdentifierProduct[];
+  setProducts: (sortedProducts: IIdentifierProduct[]) => void;
+  isSort: boolean;
+  setIsSort: (isSort: boolean) => void;
 }
-const Products = (props: IProductProps) => {
+
+const Products = ({
+  products,
+  setProducts,
+  isSort,
+  setIsSort,
+}: IProductProps) => {
   return (
     <>
       <table border={1 | 1}>
@@ -13,6 +24,12 @@ const Products = (props: IProductProps) => {
             </td>
             <td>
               <strong>Product</strong>
+              <ProductNameSort
+                setProducts={setProducts}
+                products={products}
+                isSort={isSort}
+                setIsSort={setIsSort}
+              />
             </td>
             <td>
               <strong>Quantity</strong>
@@ -25,7 +42,7 @@ const Products = (props: IProductProps) => {
             </td>
           </tr>
         </thead>
-        {props.products.map((product: IIdentifierProduct) => (
+        {products.map((product: IIdentifierProduct) => (
           <>
             <tr key={product.id}>
               <td>{product.id}</td>
