@@ -1,0 +1,8 @@
+  .input-field {
+        transition: border-color ;
+  }
+  
+  .input-field:focus {
+    border: 4px solid blue;
+    border-color: greenyellow;
+  }

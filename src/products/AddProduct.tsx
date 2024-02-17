@@ -1,13 +1,11 @@
-import { IProduct } from "../interfaces/IProduct";
-
 interface IAddProductProps {
-  addProduct: (product: IProduct) => void;
+  addProduct: () => void;
 }
 
 const AddProduct = (props: IAddProductProps) => {
   return (
     <>
-      <button onClick={() => props.addProduct}>Add Product</button>
+      <button onClick={props.addProduct}>Add Product</button>
     </>
   );
 };
