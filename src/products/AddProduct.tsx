@@ -1,5 +1,3 @@
-import { IProduct } from "../interfaces/IProduct";
-
 interface IAddProductProps {
   addProduct: () => void;
 }

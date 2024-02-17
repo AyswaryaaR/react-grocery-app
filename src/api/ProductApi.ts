@@ -1,13 +1,14 @@
 import { IIdentifierProduct, IProduct } from "../interfaces/IProduct";
 
-export const getProducts = () => {
-  return fetch(`${process.env.REACT_APP_PRODUCTS_API_URL}products`)
+export const getProducts = async () => {
+  return await fetch(`${process.env.REACT_APP_PRODUCTS_API_URL}products`)
     .then((res) => res.json())
     .catch(console.log);
 };
 
-export const postProduct = (product: IProduct) => {
-  return fetch(`${process.env.REACT_APP_PRODUCTS_API_URL}products`, {
+//POST accepts object
+export const postProduct = async (product: IProduct) => {
+  return await fetch(`${process.env.REACT_APP_PRODUCTS_API_URL}products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,8 +19,25 @@ export const postProduct = (product: IProduct) => {
     .catch(console.log);
 };
 
-export const deleteProduct = (product: IIdentifierProduct) => {
-  return fetch(
+//PUT accepts id, object
+export const putProduct = async (id: string, updatedProduct: IProduct) => {
+  return await fetch(
+    `${process.env.REACT_APP_PRODUCTS_API_URL}products/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedProduct),
+    }
+  )
+    .then((res) => res.json())
+    .catch(console.log);
+};
+
+//DELETE accepts id
+export const deleteProduct = async (product: IIdentifierProduct) => {
+  return await fetch(
     `${process.env.REACT_APP_PRODUCTS_API_URL}products/${product.id}`,
     {
       method: "DELETE",

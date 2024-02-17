@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IProduct } from "../interfaces/IProduct";
+import "./products.css";
+
 export interface IAddProductDialogBox {
   onAddProduct: (product: IProduct) => void;
 }
@@ -12,18 +14,21 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
     ShopName: "",
   };
   const [product, setProduct] = useState(initialProduct);
+  const { Cost, Name, Quantity, ShopName } = product;
 
   return (
     <>
-      <div>
+      <div id="productName">
         <input
+          className="input-field"
           onChange={(e) => setProduct({ ...product, Name: e.target.value })}
           placeholder="Product name"
+          value={Name}
         />
       </div>
       <div>
         <input
-          name="Quantity"
+          className="input-field"
           onChange={(event) =>
             setProduct({
               ...product,
@@ -31,12 +36,13 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
             })
           }
           placeholder="Quantity"
+          value={Quantity > 0 ? Quantity : ""}
         />
       </div>
 
       <div>
         <input
-          name="Cost"
+          className="input-field"
           onChange={(event) =>
             setProduct({
               ...product,
@@ -44,12 +50,14 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
             })
           }
           placeholder="Cost"
+          value={Cost > 0 ? Cost : ""}
         />
       </div>
 
       <div>
         <input
           name="Shop name"
+          className="input-field"
           onChange={(event) =>
             setProduct({
               ...product,
@@ -57,10 +65,19 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
             })
           }
           placeholder="Shop name"
+          value={ShopName}
         />
       </div>
       <div>
-        <button onClick={() => props.onAddProduct(product)}>Add</button>
+        <button
+          onClick={() => {
+            props.onAddProduct(product);
+            setProduct(initialProduct);
+          }}
+        >
+          Add
+        </button>
+        <input type="file" />
       </div>
     </>
   );

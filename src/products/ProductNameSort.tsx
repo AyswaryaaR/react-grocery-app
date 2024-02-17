@@ -14,7 +14,7 @@ const ProductNameSort = ({
   setIsSort,
 }: IProductNameSort) => {
   const onSort = () => {
-    const sortedItems = products.sort((a, b) => {
+    const sortedItems = products?.sort((a, b) => {
       // Convert names to lowercase for case-insensitive sorting
       const nameA = a.Name.toLowerCase();
       const nameB = b.Name.toLowerCase();
@@ -26,7 +26,11 @@ const ProductNameSort = ({
     setProducts(sortedItems);
   };
 
-  return <button onClick={onSort}>Sort</button>;
+  return (
+    <>
+      <button onClick={onSort}>▲▼</button>
+    </>
+  );
 };
 
 export default ProductNameSort;

@@ -4,7 +4,7 @@ interface ITotal {
   totalProducts: IIdentifierProduct[];
 }
 const Total = (props: ITotal) => {
-  const totalCost = props.totalProducts.reduce(
+  const totalCost: Number = props.totalProducts?.reduce(
     (prev, total: IIdentifierProduct) => prev + total.Cost,
     0
   );
@@ -12,7 +12,7 @@ const Total = (props: ITotal) => {
     <>
       <div>
         <strong>Total: </strong>
-        {totalCost}
+        {totalCost?.toFixed(2)}
       </div>
     </>
   );
