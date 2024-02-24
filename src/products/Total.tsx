@@ -5,15 +5,13 @@ interface ITotal {
 }
 const Total = (props: ITotal) => {
   const totalCost: Number = props.totalProducts?.reduce(
-    (prev, total: IIdentifierProduct) => prev + total.Cost,
+    (prev, total: IIdentifierProduct) => prev + Number(total.Cost),
     0
   );
   return (
     <>
-      <div>
-        <strong>Total: </strong>
-        {totalCost?.toFixed(2)}
-      </div>
+      <strong>Total: </strong>
+      {totalCost?.toFixed(2)}
     </>
   );
 };

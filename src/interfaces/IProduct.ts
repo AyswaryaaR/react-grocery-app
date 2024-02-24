@@ -1,7 +1,7 @@
 export interface IProduct {
   Name: string;
-  Quantity: number;
-  Cost: number;
+  Quantity: string;
+  Cost: string;
   ShopName: string;
 }
 export interface IAddProductDialogBox {

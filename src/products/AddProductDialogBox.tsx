@@ -9,8 +9,8 @@ export interface IAddProductDialogBox {
 export const AddProductDialogBox = (props: IAddProductDialogBox) => {
   const initialProduct: IProduct = {
     Name: "",
-    Quantity: 0,
-    Cost: 0,
+    Quantity: "",
+    Cost: "",
     ShopName: "",
   };
   const [product, setProduct] = useState(initialProduct);
@@ -32,11 +32,12 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
           onChange={(event) =>
             setProduct({
               ...product,
-              Quantity: Number(event.target.value),
+              Quantity: event.target.value,
             })
           }
           placeholder="Quantity"
-          value={Quantity > 0 ? Quantity : ""}
+          type="number"
+          value={Quantity}
         />
       </div>
 
@@ -46,11 +47,12 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
           onChange={(event) =>
             setProduct({
               ...product,
-              Cost: Number(event.target.value),
+              Cost: event.target.value,
             })
           }
           placeholder="Cost"
-          value={Cost > 0 ? Cost : ""}
+          type="number"
+          value={Cost}
         />
       </div>
 

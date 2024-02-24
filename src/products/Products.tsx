@@ -6,6 +6,7 @@ import EditProduct from "./edit/EditProduct";
 import Total from "./Total";
 import ViewProduct from "./view/ViewProduct";
 import ProductHeader from "./view/ProductHeader";
+import Search from "./search/Search";
 
 export interface IProductProps {
   products: IIdentifierProduct[];
@@ -20,54 +21,73 @@ export interface IHeader {
 const Products = ({ products, setProducts }: IProductProps) => {
   const [isSort, setIsSort] = useState(false);
   const [productId, setProductId] = useState("");
+  const [searchText, setSearchText] = useState("");
 
-  const fetchProducts = () => {
-    getProducts().then((newProducts) => setProducts(newProducts));
+  const onSearch = (value: string) => {
+    setSearchText(value);
+    getProducts(isSort, value).then((newProducts) =>
+      setProducts(newProducts as IIdentifierProduct[])
+    );
+  };
+
+  const onSort = () => {
+    setIsSort(!isSort);
+    getProducts(!isSort, searchText).then((newProducts) =>
+      setProducts(newProducts as IIdentifierProduct[])
+    );
   };
 
   const headers: IHeader[] = [
     { name: "S.NO" },
     { name: "Product", includeSort: true },
-    { name: "Quantity" },
-    { name: "Cost in Euros" },
+    { name: "Quantity(g/kg/unit/litre)" },
+    { name: "Cost(euros)" },
     { name: "Shop Name" },
     { name: "Actions" },
   ];
 
   useEffect(() => {
-    if (!isSort) {
-      getProducts().then((newProducts: IIdentifierProduct[]) => {
-        setProducts(newProducts);
-      });
-    }
-  }, [isSort, setProducts]);
-
+    getProducts(isSort, searchText).then((newProducts) =>
+      setProducts(newProducts as IIdentifierProduct[])
+    );
+  }, [isSort, searchText, setProducts]);
   return (
     <>
+      <div>
+        <Search searchText={searchText} onSearch={onSearch} />
+      </div>
       <table border={1 | 1}>
         <ProductHeader headers={headers}>
-          <ProductNameSort
-            setProducts={setProducts}
-            products={products}
-            isSort={isSort}
-            setIsSort={setIsSort}
-          />
+          <ProductNameSort onSort={onSort} />
         </ProductHeader>
         {products?.map((product: IIdentifierProduct, i: number) => (
           <>
             <tr key={product.id}>
-              <td>{i + 1}</td>
               {productId === product.id && (
                 <>
                   <EditProduct
+                    index={i}
                     product={product}
                     setProductId={setProductId}
-                    fetchProducts={fetchProducts}
+                    fetchProducts={() =>
+                      getProducts(isSort, searchText).then((newProducts) =>
+                        setProducts(newProducts as IIdentifierProduct[])
+                      )
+                    }
                   />
                 </>
               )}
               {productId !== product.id && (
-                <ViewProduct setProductId={setProductId} product={product} />
+                <ViewProduct
+                  index={i}
+                  fetchProducts={() =>
+                    getProducts(isSort, searchText).then((newProducts) =>
+                      setProducts(newProducts as IIdentifierProduct[])
+                    )
+                  }
+                  setProductId={setProductId}
+                  product={product}
+                />
               )}
             </tr>
           </>

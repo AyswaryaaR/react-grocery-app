@@ -12,7 +12,9 @@ const App = () => {
 
   const onAddProduct = (product: IProduct) => {
     postProduct(product).then(() =>
-      getProducts().then((newProducts) => setProducts(newProducts))
+      getProducts().then((newProducts) =>
+        setProducts(newProducts as IIdentifierProduct[])
+      )
     );
   };
 

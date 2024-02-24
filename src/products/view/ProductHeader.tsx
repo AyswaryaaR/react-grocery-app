@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export interface IProductProps {
   headers: IHeader[];
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const ProductHeader = ({ headers, ...props }: IProductProps) => {

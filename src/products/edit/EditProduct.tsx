@@ -3,12 +3,14 @@ import { IIdentifierProduct } from "../../interfaces/IProduct";
 import { putProduct } from "../../api/ProductApi";
 
 interface IEditProductProps {
+  index: number;
   product: IIdentifierProduct;
   fetchProducts: () => void;
   setProductId: (id: string) => void;
 }
 
 const EditProduct = ({
+  index,
   product,
   setProductId,
   fetchProducts,
@@ -25,6 +27,7 @@ const EditProduct = ({
 
   return (
     <>
+      <td>{index + 1}</td>
       <td>
         <input
           value={updatedProduct.Name}
@@ -39,9 +42,10 @@ const EditProduct = ({
           onChange={(e) =>
             setUpdatedProduct({
               ...updatedProduct,
-              Quantity: Number(e.target.value),
+              Quantity: e.target.value,
             })
           }
+          type="number"
         />
       </td>
       <td>
@@ -50,9 +54,10 @@ const EditProduct = ({
           onChange={(e) =>
             setUpdatedProduct({
               ...updatedProduct,
-              Cost: Number(e.target.value),
+              Cost: e.target.value,
             })
           }
+          type="number"
         />
       </td>
       <td>
