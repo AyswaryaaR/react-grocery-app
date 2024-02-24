@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { IProduct } from "../interfaces/IProduct";
 import "./products.css";
+import Input from "../components/input/Input";
+import FileUpload from "../components/fileUpload/FileUpload";
+import Button from "../components/button/Button";
 
 export interface IAddProductDialogBox {
   onAddProduct: (product: IProduct) => void;
@@ -8,27 +11,42 @@ export interface IAddProductDialogBox {
 
 export const AddProductDialogBox = (props: IAddProductDialogBox) => {
   const initialProduct: IProduct = {
-    Name: "",
+    Description: "",
     Quantity: "",
-    Cost: "",
-    ShopName: "",
+    Unit: "",
+    Price: "",
+    CostPerUnit: "",
+    Iva: "",
+    Date: "",
+    Location: "",
+    Store: "",
   };
   const [product, setProduct] = useState(initialProduct);
-  const { Cost, Name, Quantity, ShopName } = product;
+  const {
+    Description,
+    Quantity,
+    Unit,
+    Price,
+    CostPerUnit,
+    Iva,
+    Date,
+    Location,
+    Store,
+  } = product;
 
   return (
     <>
-      <div id="productName">
-        <input
-          className="input-field"
-          onChange={(e) => setProduct({ ...product, Name: e.target.value })}
-          placeholder="Product name"
-          value={Name}
+      <div>
+        <Input
+          onChange={(e) =>
+            setProduct({ ...product, Description: e.target.value })
+          }
+          placeholder="Description"
+          value={Description}
         />
       </div>
       <div>
-        <input
-          className="input-field"
+        <Input
           onChange={(event) =>
             setProduct({
               ...product,
@@ -42,44 +60,103 @@ export const AddProductDialogBox = (props: IAddProductDialogBox) => {
       </div>
 
       <div>
-        <input
-          className="input-field"
+        <Input
           onChange={(event) =>
             setProduct({
               ...product,
-              Cost: event.target.value,
+              Unit: event.target.value,
             })
           }
-          placeholder="Cost"
+          placeholder="Unit"
           type="number"
-          value={Cost}
+          value={Unit}
         />
       </div>
 
       <div>
-        <input
-          name="Shop name"
-          className="input-field"
+        <Input
           onChange={(event) =>
             setProduct({
               ...product,
-              ShopName: event.target.value,
+              Price: event.target.value,
             })
           }
-          placeholder="Shop name"
-          value={ShopName}
+          placeholder="Price"
+          value={Price}
+          type="number"
         />
       </div>
       <div>
-        <button
+        <Input
+          onChange={(event) =>
+            setProduct({
+              ...product,
+              CostPerUnit: event.target.value,
+            })
+          }
+          placeholder="Cost per unit"
+          value={CostPerUnit}
+          type="number"
+        />
+      </div>
+      <div>
+        <Input
+          onChange={(event) =>
+            setProduct({
+              ...product,
+              Iva: event.target.value,
+            })
+          }
+          placeholder="IVA"
+          value={Iva}
+          type="number"
+        />
+      </div>
+      <div>
+        <Input
+          onChange={(event) =>
+            setProduct({
+              ...product,
+              Date: event.target.value,
+            })
+          }
+          placeholder="Date"
+          value={Date}
+        />
+      </div>
+      <div>
+        <Input
+          onChange={(event) =>
+            setProduct({
+              ...product,
+              Location: event.target.value,
+            })
+          }
+          placeholder="Location"
+          value={Location}
+        />
+      </div>
+      <div>
+        <Input
+          onChange={(event) =>
+            setProduct({
+              ...product,
+              Store: event.target.value,
+            })
+          }
+          placeholder="Store"
+          value={Store}
+        />
+      </div>
+      <div>
+        <Button
           onClick={() => {
             props.onAddProduct(product);
             setProduct(initialProduct);
           }}
-        >
-          Add
-        </button>
-        <input type="file" />
+          buttonText="Add"
+        />
+        <FileUpload onChange={() => {}} />
       </div>
     </>
   );

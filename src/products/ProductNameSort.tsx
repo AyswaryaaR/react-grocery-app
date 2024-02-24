@@ -1,3 +1,5 @@
+import Button from "../components/button/Button";
+
 interface IProductNameSort {
   onSort: () => void;
 }
@@ -5,7 +7,7 @@ interface IProductNameSort {
 const ProductNameSort = ({ onSort }: IProductNameSort) => {
   return (
     <>
-      <button onClick={onSort}>▲▼</button>
+      <Button onClick={onSort} buttonText="▲▼" />
     </>
   );
 };

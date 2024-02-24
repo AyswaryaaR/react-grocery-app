@@ -9,14 +9,14 @@ export const getProducts = async (
       let products = (await res.json()) as IIdentifierProduct[];
       if (searchText && searchText.length > 0) {
         products = products.filter((product) =>
-          product.Name.toLowerCase().includes(searchText.toLowerCase())
+          product.Description.toLowerCase().includes(searchText.toLowerCase())
         );
       }
       if (sort) {
         products.sort((a, b) => {
           // Convert names to lowercase for case-insensitive sorting
-          const nameA = a.Name.toLowerCase();
-          const nameB = b.Name.toLowerCase();
+          const nameA = a.Description.toLowerCase();
+          const nameB = b.Description.toLowerCase();
           if (nameA < nameB) return -1;
           if (nameA > nameB) return 1;
           return 0;

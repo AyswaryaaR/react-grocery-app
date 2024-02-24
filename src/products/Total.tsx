@@ -5,7 +5,7 @@ interface ITotal {
 }
 const Total = (props: ITotal) => {
   const totalCost: Number = props.totalProducts?.reduce(
-    (prev, total: IIdentifierProduct) => prev + Number(total.Cost),
+    (prev, total: IIdentifierProduct) => prev + Number(total.Price),
     0
   );
   return (

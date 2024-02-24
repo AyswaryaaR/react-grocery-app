@@ -39,10 +39,15 @@ const Products = ({ products, setProducts }: IProductProps) => {
 
   const headers: IHeader[] = [
     { name: "S.NO" },
-    { name: "Product", includeSort: true },
+    { name: "Description", includeSort: true },
     { name: "Quantity(g/kg/unit/litre)" },
-    { name: "Cost(euros)" },
-    { name: "Shop Name" },
+    { name: "Unit" },
+    { name: "Price" },
+    { name: "Cost per unit" },
+    { name: "IVA" },
+    { name: "Date" },
+    { name: "Location" },
+    { name: "Store", includeSort: true },
     { name: "Actions" },
   ];
 

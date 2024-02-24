@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { IIdentifierProduct } from "../../interfaces/IProduct";
 import { putProduct } from "../../api/ProductApi";
+import Input from "../../components/input/Input";
+import Button from "../../components/button/Button";
 
 interface IEditProductProps {
   index: number;
@@ -29,15 +31,18 @@ const EditProduct = ({
     <>
       <td>{index + 1}</td>
       <td>
-        <input
-          value={updatedProduct.Name}
+        <Input
+          value={updatedProduct.Description}
           onChange={(e) =>
-            setUpdatedProduct({ ...updatedProduct, Name: e.target.value })
+            setUpdatedProduct({
+              ...updatedProduct,
+              Description: e.target.value,
+            })
           }
         />
       </td>
       <td>
-        <input
+        <Input
           value={updatedProduct.Quantity}
           onChange={(e) =>
             setUpdatedProduct({
@@ -49,28 +54,89 @@ const EditProduct = ({
         />
       </td>
       <td>
-        <input
-          value={updatedProduct.Cost}
+        <Input
+          value={updatedProduct.Unit}
           onChange={(e) =>
             setUpdatedProduct({
               ...updatedProduct,
-              Cost: e.target.value,
+              Unit: e.target.value,
             })
           }
           type="number"
         />
       </td>
       <td>
-        <input
-          value={updatedProduct.ShopName}
+        <Input
+          value={updatedProduct.Price}
           onChange={(e) =>
-            setUpdatedProduct({ ...updatedProduct, ShopName: e.target.value })
+            setUpdatedProduct({
+              ...updatedProduct,
+              Price: e.target.value,
+            })
+          }
+          type="number"
+        />
+      </td>
+      <td>
+        <Input
+          value={updatedProduct.CostPerUnit}
+          onChange={(e) =>
+            setUpdatedProduct({
+              ...updatedProduct,
+              CostPerUnit: e.target.value,
+            })
+          }
+          type="number"
+        />
+      </td>
+      <td>
+        <Input
+          value={updatedProduct.Iva}
+          onChange={(e) =>
+            setUpdatedProduct({
+              ...updatedProduct,
+              Iva: e.target.value,
+            })
+          }
+          type="number"
+        />
+      </td>
+      <td>
+        <Input
+          value={updatedProduct.Date}
+          onChange={(e) =>
+            setUpdatedProduct({
+              ...updatedProduct,
+              Date: e.target.value,
+            })
           }
         />
       </td>
       <td>
-        <button onClick={() => handleSaveClick()}>Save</button>
-        <button onClick={resetProductId}>Cancel</button>
+        <Input
+          value={updatedProduct.Location}
+          onChange={(e) =>
+            setUpdatedProduct({
+              ...updatedProduct,
+              Location: e.target.value,
+            })
+          }
+        />
+      </td>
+      <td>
+        <Input
+          value={updatedProduct.Store}
+          onChange={(e) =>
+            setUpdatedProduct({
+              ...updatedProduct,
+              Store: e.target.value,
+            })
+          }
+        />
+      </td>
+      <td>
+        <Button onClick={() => handleSaveClick()} buttonText="Save" />
+        <Button onClick={resetProductId} buttonText="Cancel" />
       </td>
     </>
   );

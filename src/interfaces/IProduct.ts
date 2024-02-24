@@ -1,8 +1,13 @@
 export interface IProduct {
-  Name: string;
+  Description: string;
   Quantity: string;
-  Cost: string;
-  ShopName: string;
+  Unit: string;
+  Price: string;
+  CostPerUnit: string;
+  Iva: string;
+  Date: string;
+  Location: string;
+  Store: string;
 }
 export interface IAddProductDialogBox {
   onAddProduct: (product: IProduct) => void;

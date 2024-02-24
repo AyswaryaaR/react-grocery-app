@@ -1,4 +1,5 @@
 import { deleteProduct } from "../../api/ProductApi";
+import Button from "../../components/button/Button";
 import { IIdentifierProduct } from "../../interfaces/IProduct";
 
 interface IViewProductProps {
@@ -21,13 +22,18 @@ const ViewProduct = ({
   return (
     <>
       <td>{index + 1}</td>
-      <td>{product.Name} </td>
+      <td>{product.Description} </td>
       <td>{product.Quantity}</td>
-      <td>{product.Cost}</td>
-      <td>{product.ShopName}</td>
+      <td>{product.Unit}</td>
+      <td>{product.Price}</td>
+      <td>{product.CostPerUnit}</td>
+      <td>{product.Iva}</td>
+      <td>{product.Date}</td>
+      <td>{product.Location}</td>
+      <td>{product.Store}</td>
       <td>
-        <button onClick={() => setProductId(product.id)}>Edit</button>
-        <button onClick={onDelete}>Delete</button>
+        <Button onClick={() => setProductId(product.id)} buttonText="Edit" />
+        <Button onClick={onDelete} buttonText="Delete" />
       </td>
     </>
   );

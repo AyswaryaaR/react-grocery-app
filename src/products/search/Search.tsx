@@ -1,3 +1,5 @@
+import Input from "../../components/input/Input";
+
 export interface ISearchProps {
   searchText: string;
   onSearch: (value: string) => void;
@@ -6,9 +8,10 @@ export interface ISearchProps {
 const Search = ({ searchText, onSearch }: ISearchProps) => {
   return (
     <>
-      <input
+      <Input
         value={searchText}
         onChange={(event) => onSearch(event.target.value)}
+        placeholder="Search"
       />
     </>
   );
