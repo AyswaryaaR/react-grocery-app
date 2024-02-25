@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { IProduct } from "../interfaces/IProduct";
+import { IProduct } from "../../interfaces/IProduct";
 import "./products.css";
-import Input from "../components/input/Input";
-import FileUpload from "../components/fileUpload/FileUpload";
-import Button from "../components/button/Button";
+import Input from "../../components/input/Input";
+import FileUpload from "../../components/fileUpload/FileUpload";
+import Button from "../../components/button/Button";
 
 export interface IAddProductDialogBox {
   onAddProduct: (product: IProduct) => void;

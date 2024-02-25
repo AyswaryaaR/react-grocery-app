@@ -1,6 +1,6 @@
-import { deleteProduct } from "../../api/ProductApi";
-import Button from "../../components/button/Button";
-import { IIdentifierProduct } from "../../interfaces/IProduct";
+import { deleteProduct } from "../../../api/ProductApi";
+import Button from "../../../components/button/Button";
+import { IIdentifierProduct } from "../../../interfaces/IProduct";
 
 interface IViewProductProps {
   index: number;

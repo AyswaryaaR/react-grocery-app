@@ -1,3 +1,5 @@
+import Button from "../../components/button/Button";
+
 interface IAddProductProps {
   addProduct: () => void;
 }
@@ -5,7 +7,7 @@ interface IAddProductProps {
 const AddProduct = (props: IAddProductProps) => {
   return (
     <>
-      <button onClick={props.addProduct}>Add Product</button>
+      <Button buttonText="Add Product" onClick={props.addProduct} />
     </>
   );
 };

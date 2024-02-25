@@ -1,9 +1,9 @@
 import "./App.css";
-import Products from "./products/Products";
+import Products from "./pages/products/Products";
 import { getProducts, postProduct } from "./api/ProductApi";
 import { IIdentifierProduct, IProduct } from "./interfaces/IProduct";
-import AddProduct from "./products/AddProduct";
-import AddProductDialogBox from "./products/AddProductDialogBox";
+import AddProduct from "./pages/products/AddProduct";
+import AddProductDialogBox from "./pages/products/AddProductDialogBox";
 import { useState } from "react";
 
 const App = () => {

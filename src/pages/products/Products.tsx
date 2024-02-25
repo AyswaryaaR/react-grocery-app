@@ -1,6 +1,6 @@
-import { IIdentifierProduct } from "../interfaces/IProduct";
+import { IIdentifierProduct } from "../../interfaces/IProduct";
 import ProductNameSort from "./ProductNameSort";
-import { getProducts } from "../api/ProductApi";
+import { getProducts } from "../../api/ProductApi";
 import { useEffect, useState } from "react";
 import EditProduct from "./edit/EditProduct";
 import Total from "./Total";
@@ -44,7 +44,7 @@ const Products = ({ products, setProducts }: IProductProps) => {
     { name: "Unit" },
     { name: "Price" },
     { name: "Cost per unit" },
-    { name: "IVA" },
+    { name: "IVA %" },
     { name: "Date" },
     { name: "Location" },
     { name: "Store", includeSort: true },

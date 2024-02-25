@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { IIdentifierProduct } from "../../interfaces/IProduct";
-import { putProduct } from "../../api/ProductApi";
-import Input from "../../components/input/Input";
-import Button from "../../components/button/Button";
+import { IIdentifierProduct } from "../../../interfaces/IProduct";
+import { putProduct } from "../../../api/ProductApi";
+import Input from "../../../components/input/Input";
+import Button from "../../../components/button/Button";
 
 interface IEditProductProps {
   index: number;

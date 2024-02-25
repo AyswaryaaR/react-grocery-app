@@ -1,4 +1,4 @@
-import { IIdentifierProduct } from "../interfaces/IProduct";
+import { IIdentifierProduct } from "../../interfaces/IProduct";
 
 interface ITotal {
   totalProducts: IIdentifierProduct[];
