@@ -18,3 +18,5 @@ A grocery shopping app built with React and TypeScript, featuring CRUD operation
 ## Learnings
 - Learned how to manage component state efficiently with React hooks
 - Practiced integrating a API for frontend CRUD operations 
+
+<img width="960" height="479" alt="grocery_application" src="https://github.com/user-attachments/assets/35e5a99b-677c-4e91-89ad-25ce1d61bb56" />
